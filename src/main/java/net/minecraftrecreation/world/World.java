@@ -18,8 +18,8 @@ import java.util.Map;
 import static net.minecraftrecreation.client.CrashHandler.crash;
 import static net.minecraftrecreation.client.Main.logger;
 import static net.minecraftrecreation.client.Main.postExit;
-import static net.minecraftrecreation.world.block.base.BlockRegistry.AIR;
-import static net.minecraftrecreation.world.block.base.BlockRegistry.GRASS_BLOCK;
+import static net.minecraftrecreation.world.block.Blocks.AIR;
+import static net.minecraftrecreation.world.block.Blocks.GRASS_BLOCK;
 import static ru.morozovit.logging.Loglevel.*;
 
 public class World implements Serializable, Cloneable {

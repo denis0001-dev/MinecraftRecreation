@@ -14,7 +14,7 @@ import ru.morozovit.util.program.Arguments;
 import static net.minecraftrecreation.client.AppInfo.*;
 import static net.minecraftrecreation.client.CrashHandler.crash;
 import static net.minecraftrecreation.world.Worlds.OVERWORLD;
-import static net.minecraftrecreation.world.block.base.BlockRegistry.GRASS_BLOCK;
+import static net.minecraftrecreation.world.block.Blocks.STONE;
 import static org.lwjgl.glfw.GLFW.*;
 import static ru.morozovit.logging.Loglevel.*;
 
@@ -132,7 +132,7 @@ public final class Main implements IAppLogic {
             int y = (int) scene.getCamera().getPosition().y;
             int z = (int) scene.getCamera().getPosition().z;
 
-            OVERWORLD.setBlock(GRASS_BLOCK, new Location(x,y,z));
+            OVERWORLD.setBlock(STONE, new Location(x,y,z));
         }
     }
 
