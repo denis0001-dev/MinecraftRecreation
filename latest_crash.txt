@@ -1,0 +1,50 @@
+MinecraftRecreation Project Crash Report
+-----------
+// I'm so sorry :(
+
+Time: 21:18:50 04.06.2024
+UUID: 68a8d297-9931-4503-889f-f533e0e6c156
+
+Error details
+---------
+net.minecraftrecreation.world.NegativeCapacityException: Negative capacity: -655360
+	at net.minecraftrecreation.world.BlockMap.<init>(BlockMap.java:73)
+	at net.minecraftrecreation.world.World.load(World.java:59)
+	at net.minecraftrecreation.client.Main.init(Main.java:73)
+	at net.minecraftrecreation.client.Engine.<init>(Engine.java:28)
+	at net.minecraftrecreation.client.Main.main(Main.java:45)
+
+Java info
+--------
+Java runtime name: OpenJDK Runtime Environment
+Java VM vendor: Oracle Corporation
+Java VM specification vendor: Oracle Corporation
+Java VM specification version: 22
+Java version date: 2024-03-19
+Java I/O tmpdir: /tmp
+Java specification version: 22
+Java specification name: Java Platform API Specification
+Java runtime version: 22+36-2370
+Java VM version: 22+36-2370
+Java VM specification name: Java Virtual Machine Specification
+Java VM name: OpenJDK 64-Bit Server VM
+Java vendor: Oracle Corporation
+Java vendor url: https://java.oracle.com/
+Java VM info: mixed mode, sharing
+Java specification vendor: Oracle Corporation
+sun management compiler: HotSpot 64-Bit Tiered Compilers
+Java vendor url bug: https://bugreport.java.com/bugreport/
+Java version: 22
+
+System info
+--------
+OS name: Linux
+file encoding: UTF-8
+OS version: 6.5.0-35-generic
+OS arch: amd64
+file separator: /
+
+Other
+--------
+org lwjgl librarypath: /tmp/lwjgldenis0001/3.1.0-build-40
+user timezone: Europe/Moscow
