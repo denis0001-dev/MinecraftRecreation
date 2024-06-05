@@ -36,3 +36,10 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### My ###
+/trash/
+/out/
+latest.log
+latest_crash.txt
+qodana.yaml
