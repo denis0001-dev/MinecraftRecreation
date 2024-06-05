@@ -1,7 +1,7 @@
-[2024.06.05 19:07:48] [main/ERROR]: [LWJGL] [MemoryAccessor] Unsupported JVM detected, this will likely result in low performance. Please inform LWJGL developers.
-[2024.06.05 19:07:49] [main/INFO]: Starting MinecraftRecreation Project version 1.0 pre-alpha
-[2024.06.05 19:07:49] [main/DEBUG]: Arguments: [--name, test]
-[2024.06.05 19:07:49] [main/INFO]: Setting user: test
-[2024.06.05 19:07:49] [main/INFO]: Loading world 'overworld' from 'world.mcrworld'
-[2024.06.05 19:08:11] [main/INFO]: Saving world 'overworld' to 'world.mcrworld'
-[2024.06.05 19:08:11] [main/INFO]: Stopping!
+[2024.06.05 19:33:03] [main/ERROR]: [LWJGL] [MemoryAccessor] Unsupported JVM detected, this will likely result in low performance. Please inform LWJGL developers.
+[2024.06.05 19:33:03] [main/INFO]: Starting MinecraftRecreation Project version 1.0 pre-alpha
+[2024.06.05 19:33:03] [main/DEBUG]: Arguments: [--name, test]
+[2024.06.05 19:33:03] [main/INFO]: Setting user: test
+[2024.06.05 19:33:04] [main/INFO]: Loading world 'overworld' from 'world.mcrworld'
+[2024.06.05 19:33:07] [main/INFO]: Saving world 'overworld' to 'world.mcrworld'
+[2024.06.05 19:33:07] [main/INFO]: Stopping!
