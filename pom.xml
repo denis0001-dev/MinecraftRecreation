@@ -28,7 +28,7 @@
         <maven.compiler.source>22</maven.compiler.source>
         <maven.compiler.target>22</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <lwjgl.version>3.1.0</lwjgl.version>
+        <lwjgl.version>3.1.1</lwjgl.version>
         <lwjgl.natives>natives-linux</lwjgl.natives>
         <joml.version>1.10.5</joml.version>
         <imgui-java.version>1.86.11</imgui-java.version>
@@ -175,6 +175,28 @@
             <artifactId>imgui-java-${native.target}</artifactId>
             <version>${imgui-java.version}</version>
             <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.lwjgl</groupId>
+            <artifactId>lwjgl-assimp</artifactId>
+            <version>${lwjgl.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.lwjgl</groupId>
+            <artifactId>lwjgl-assimp</artifactId>
+            <version>${lwjgl.version}</version>
+            <classifier>${native.target}</classifier>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.lwjgl</groupId>
+            <artifactId>lwjgl-opengl-${lwjgl.natives}</artifactId>
+            <version>${lwjgl.version}</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/lwjgl-opengl-${lwjgl.version}-${lwjgl.natives}.jar</systemPath>
         </dependency>
 
     </dependencies>
