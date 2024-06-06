@@ -28,8 +28,7 @@ public class World implements Serializable, Cloneable {
 
     public BlockMap blockMap = null;
 
-    // TODO remove transient keyword
-    public transient ArrayList<Entity> entities = new ArrayList<>();
+    public final transient ArrayList<Entity> entities = new ArrayList<>();
     private transient Scene scene = null;
 
     private final String name;

@@ -74,7 +74,7 @@ public class BlockMap implements Serializable {
 //        }
     }
 
-    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
+    @SuppressWarnings({"BooleanMethodIsAlwaysInverted", "SameReturnValue"})
     public boolean isInBounds(@NotNull Location loc) {
         // TODO fix
 //        return loc.x() >= startX && loc.x() <= endX &&

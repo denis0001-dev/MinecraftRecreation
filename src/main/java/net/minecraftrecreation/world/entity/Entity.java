@@ -5,7 +5,6 @@ import org.jetbrains.annotations.NotNull;
 import org.joml.*;
 
 public class Entity {
-
     private final String id;
     private final String modelId;
     private final Matrix4f modelMatrix;

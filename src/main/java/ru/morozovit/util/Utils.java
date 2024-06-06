@@ -9,7 +9,6 @@ public class Utils {
         // Utility class
     }
 
-    @Deprecated
     public static String readFile(String filePath) {
         String str;
         try {

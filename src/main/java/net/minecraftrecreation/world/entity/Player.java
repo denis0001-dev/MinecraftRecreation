@@ -36,4 +36,8 @@ public class Player {
         }
         this.health = health;
     }
+
+    public boolean isAlive() {
+        return alive;
+    }
 }

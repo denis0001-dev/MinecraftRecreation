@@ -154,7 +154,7 @@ public class Window {
         public boolean compatibleProfile;
         public int fps;
         public int height;
-        public int ups = Engine.TARGET_UPS;
+        public final int ups = Engine.TARGET_UPS;
         public int width;
     }
 

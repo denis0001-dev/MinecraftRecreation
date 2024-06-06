@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Material {
 
-    private List<Mesh> meshList;
+    private final List<Mesh> meshList;
     private String texturePath;
 
     public Material() {
