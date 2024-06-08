@@ -1,10 +1,7 @@
 package net.minecraftrecreation.world;
 
 import net.minecraftrecreation.render.scene.Scene;
-import net.minecraftrecreation.render.scene.objects.Material;
-import net.minecraftrecreation.render.scene.objects.Mesh;
 import net.minecraftrecreation.render.scene.objects.Model;
-import net.minecraftrecreation.render.scene.objects.Texture;
 import net.minecraftrecreation.world.block.base.Block;
 import net.minecraftrecreation.world.entity.Entity;
 import org.jetbrains.annotations.NotNull;
@@ -18,6 +15,7 @@ import java.util.Map;
 import static net.minecraftrecreation.client.CrashHandler.crash;
 import static net.minecraftrecreation.client.Main.logger;
 import static net.minecraftrecreation.client.Main.postExit;
+import static net.minecraftrecreation.render.scene.objects.ModelLoader.loadModel;
 import static net.minecraftrecreation.world.block.Blocks.AIR;
 import static net.minecraftrecreation.world.block.Blocks.GRASS_BLOCK;
 import static ru.morozovit.logging.Loglevel.*;
@@ -135,19 +133,19 @@ public class World implements Serializable, Cloneable {
     private void setBlockNoSave(Block block, Location location) {
         if (block == AIR) return;
 
-        Texture texture = this.scene.getTextureCache().createTexture(block.texturePath());
-        Material material = new Material();
-        material.setTexturePath(texture.getTexturePath());
-        List<Material> materialList = new ArrayList<>();
-        materialList.add(material);
-
-        Mesh mesh = new Mesh(block.positions(), block.textCoords(), block.indices());
-        material.getMeshList().add(mesh);
+//        Texture texture = this.scene.getTextureCache().createTexture(block.modelPath());
+//        Material material = new Material();
+//        material.setTexturePath(texture.getTexturePath());
+//        List<Material> materialList = new ArrayList<>();
+//        materialList.add(material);
+//
+//        Mesh mesh = new Mesh(block.positions(), block.textCoords(), block.indices());
+//        material.getMeshList().add(mesh);
 
         String modelName = block.id()+"-model"+lastIndex(entities);
         String entityName = block.id()+"-entity"+lastIndex(entities);
 
-        Model blockModel = new Model(modelName, materialList);
+        Model blockModel = loadModel(modelName, block.modelPath(), scene.getTextureCache());
         this.scene.addModel(blockModel);
 
         Entity entity = new Entity(entityName, blockModel.getId());

@@ -9,12 +9,13 @@ import net.minecraftrecreation.client.Window;
 import static org.lwjgl.opengl.GL11.*;
 
 public class Renderer {
-
     private final SceneRender sceneRender;
 
     public Renderer() {
         GL.createCapabilities();
         glEnable(GL_DEPTH_TEST);
+        glEnable(GL_CULL_FACE);
+        glCullFace(GL_BACK);
         sceneRender = new SceneRender();
     }
 

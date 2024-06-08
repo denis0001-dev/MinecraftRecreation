@@ -1,6 +1,6 @@
 package net.minecraftrecreation.world.block.base;
 
-import net.minecraftrecreation.world.block.exceptions.NoTextureException;
+import net.minecraftrecreation.world.block.exceptions.NoModelException;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -11,8 +11,7 @@ public abstract class TexturelessBlock extends Block implements Serializable {
 
     public abstract String id();
 
-
-    public final String texturePath() {
-        throw new NoTextureException(this);
+    public final String modelPath() {
+        throw new NoModelException(this);
     }
 }

@@ -79,7 +79,7 @@ public final class Main implements IAppLogic {
         });
 
         // the old way to place a block
-//        Texture texture = scene.getTextureCache().createTexture("resources/models/cube/cube.png");
+//        Texture texture = scene.getTextureCache().createTexture("resources/models/cube/texture.png");
 //        Material material = new Material();
 //        material.setTexturePath(texture.getTexturePath());
 //        List<Material> materialList = new ArrayList<>();

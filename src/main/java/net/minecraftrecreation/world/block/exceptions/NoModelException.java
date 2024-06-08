@@ -6,11 +6,11 @@ import org.jetbrains.annotations.NotNull;
 import java.io.Serial;
 import java.io.Serializable;
 
-public class NoTextureException extends RuntimeException implements Serializable {
+public class NoModelException extends RuntimeException implements Serializable {
     @Serial
     private static final long serialVersionUID = 1891489831069084028L;
 
-    public NoTextureException(@NotNull Block block) {
+    public NoModelException(@NotNull Block block) {
         super("Block '%s' doesn't have a texture".formatted(block.id()));
     }
 }

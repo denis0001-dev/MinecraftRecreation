@@ -1,9 +1,12 @@
 package net.minecraftrecreation.render.scene.objects;
 
+import org.jetbrains.annotations.NotNull;
 import org.joml.Matrix4f;
+import org.joml.Vector4f;
 import org.lwjgl.system.MemoryStack;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.lwjgl.opengl.GL20.*;
 
@@ -38,9 +41,13 @@ public class UniformsMap {
         glUniform1i(getUniformLocation(uniformName), value);
     }
 
-    public void setUniform(String uniformName, Matrix4f value) {
+    public void setUniform(String uniformName, @NotNull Matrix4f value) {
         try (MemoryStack stack = MemoryStack.stackPush()) {
             glUniformMatrix4fv(getUniformLocation(uniformName), false, value.get(stack.mallocFloat(16)));
         }
+    }
+
+    public void setUniform(String uniformName, @NotNull Vector4f value) {
+        glUniform4f(getUniformLocation(uniformName), value.x, value.y, value.z, value.w);
     }
 }

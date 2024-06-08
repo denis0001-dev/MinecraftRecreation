@@ -29,7 +29,9 @@ interface IBlock {
         return new Texture(16,16,buffer);
     }
 
-    String texturePath();
+    default String modelPath() {
+        return String.format("resources/models/%s/model.obj", this.getClass().getSimpleName());
+    }
 
     default float[] positions() {
         return new float[]{

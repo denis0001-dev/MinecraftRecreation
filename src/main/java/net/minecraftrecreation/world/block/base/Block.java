@@ -12,6 +12,4 @@ public abstract class Block implements IBlock, Serializable {
     }
 
     public abstract String id();
-
-    public abstract String texturePath();
 }

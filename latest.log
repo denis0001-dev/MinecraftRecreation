@@ -1,6 +1,7 @@
-[2024.06.08 14:31:36] [main/INFO]: Starting MinecraftRecreation Project version 1.0 pre-alpha
-[2024.06.08 14:31:36] [main/DEBUG]: Arguments: [--name, test]
-[2024.06.08 14:31:36] [main/INFO]: Setting user: test
-[2024.06.08 14:31:36] [main/INFO]: Loading world 'overworld' from 'world.mcrworld'
-[2024.06.08 14:31:57] [main/INFO]: Saving world 'overworld' to 'world.mcrworld'
-[2024.06.08 14:31:57] [main/INFO]: Stopping!
+[2024.06.08 17:49:18] [main/INFO]: Starting MinecraftRecreation Project version 1.0 pre-alpha
+[2024.06.08 17:49:18] [main/DEBUG]: Arguments: [--name, test]
+[2024.06.08 17:49:19] [main/INFO]: Setting user: test
+[2024.06.08 17:49:19] [main/INFO]: Loading world 'overworld' from 'world.mcrworld'
+[2024.06.08 17:49:28] [main/WARN]: Texture for 'resources/models/Stone/model.obj' is missing, using default texture
+[2024.06.08 17:49:52] [main/INFO]: Saving world 'overworld' to 'world.mcrworld'
+[2024.06.08 17:49:52] [main/INFO]: Stopping!
