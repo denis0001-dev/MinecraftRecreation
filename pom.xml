@@ -152,6 +152,7 @@
             <version>${joml.version}</version>
         </dependency>
 
+        <!--
         <dependency>
             <groupId>ru.morozovit</groupId>
             <artifactId>util</artifactId>
@@ -167,6 +168,7 @@
             <scope>system</scope>
             <systemPath>${project.basedir}/libs/logging-1.0.jar</systemPath>
         </dependency>
+        -->
 
         <dependency>
             <groupId>io.github.spair</groupId>
