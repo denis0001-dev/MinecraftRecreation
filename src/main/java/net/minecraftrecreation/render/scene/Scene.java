@@ -2,6 +2,7 @@ package net.minecraftrecreation.render.scene;
 
 import net.minecraftrecreation.render.camera.Camera;
 import net.minecraftrecreation.render.camera.Projection;
+import net.minecraftrecreation.render.gui.GUIInstance;
 import net.minecraftrecreation.render.scene.objects.Model;
 import net.minecraftrecreation.render.scene.objects.TextureCache;
 import net.minecraftrecreation.world.entity.Entity;
@@ -12,11 +13,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Scene {
-
     private final Map<String, Model> modelMap;
     private final Projection projection;
     private final TextureCache textureCache;
     private final Camera camera;
+
+    private GUIInstance guiInstance;
 
     public Scene(int width, int height) {
         modelMap = new HashMap<>();
@@ -66,5 +68,13 @@ public class Scene {
         if (entity != null) {
             modelMap.remove(entity.getModelId());
         }
+    }
+
+    public GUIInstance getGuiInstance() {
+        return guiInstance;
+    }
+
+    public void setGuiInstance(GUIInstance guiInstance) {
+        this.guiInstance = guiInstance;
     }
 }

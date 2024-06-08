@@ -1,21 +1,19 @@
 MinecraftRecreation Project Crash Report
 -----------
-// I'm so sorry :(
+// My bad.
 
-Time: 19:25:05 08.06.2024
-UUID: 00a6ccb8-3f76-4442-b2f3-f07b233f2f09
+Time: 20:38:23 08.06.2024
+UUID: c92852f8-10bc-41d3-8982-564b6da5bd26
 
 Error details
 ---------
-java.util.ConcurrentModificationException
-	at java.base/java.util.HashMap$HashIterator.nextNode(HashMap.java:1605)
-	at java.base/java.util.HashMap$EntryIterator.next(HashMap.java:1638)
-	at java.base/java.util.HashMap$EntryIterator.next(HashMap.java:1636)
-	at net.minecraftrecreation.world.World.loadBlockMap(World.java:78)
-	at net.minecraftrecreation.world.World.load(World.java:123)
-	at net.minecraftrecreation.client.Main.init(Main.java:74)
-	at net.minecraftrecreation.client.Engine.<init>(Engine.java:32)
-	at net.minecraftrecreation.client.Main.main(Main.java:48)
+java.lang.RuntimeException: Could not find uniform [projectionMatrix] in shader program [1]
+	at net.minecraftrecreation.render.scene.objects.UniformsMap.createUniform(UniformsMap.java:27)
+	at net.minecraftrecreation.render.scene.SceneRender.createUniforms(SceneRender.java:38)
+	at net.minecraftrecreation.render.scene.SceneRender.<init>(SceneRender.java:29)
+	at net.minecraftrecreation.render.camera.Renderer.<init>(Renderer.java:21)
+	at net.minecraftrecreation.client.Engine.<init>(Engine.java:31)
+	at net.minecraftrecreation.client.Main.main(Main.java:52)
 
 Java info
 --------

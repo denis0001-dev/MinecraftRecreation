@@ -2,6 +2,7 @@ package net.minecraftrecreation.render.scene.objects;
 
 import org.jetbrains.annotations.NotNull;
 import org.joml.Matrix4f;
+import org.joml.Vector2f;
 import org.joml.Vector4f;
 import org.lwjgl.system.MemoryStack;
 
@@ -49,5 +50,9 @@ public class UniformsMap {
 
     public void setUniform(String uniformName, @NotNull Vector4f value) {
         glUniform4f(getUniformLocation(uniformName), value.x, value.y, value.z, value.w);
+    }
+
+    public void setUniform(String uniformName, @NotNull Vector2f value) {
+        glUniform2f(getUniformLocation(uniformName), value.x, value.y);
     }
 }

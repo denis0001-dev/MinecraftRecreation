@@ -1,6 +1,7 @@
 package net.minecraftrecreation.client;
 
 import net.minecraftrecreation.render.camera.Renderer;
+import net.minecraftrecreation.render.gui.GUIInstance;
 import net.minecraftrecreation.render.scene.Scene;
 import org.jetbrains.annotations.NotNull;
 import ru.morozovit.util.ExcParser;
@@ -27,7 +28,7 @@ public class Engine {
         targetFps = opts.fps;
         targetUps = opts.ups;
         this.appLogic = appLogic;
-        renderer = new Renderer();
+        renderer = new Renderer(window);
         scene = new Scene(window.getWidth(), window.getHeight());
         appLogic.init(window, scene, renderer);
         running = true;
@@ -41,7 +42,10 @@ public class Engine {
     }
 
     private void resize() {
-        scene.resize(window.getWidth(), window.getHeight());
+        int width = window.getWidth();
+        int height = window.getHeight();
+        scene.resize(width, height);
+        renderer.resize(width, height);
     }
 
     private void run() {
@@ -52,6 +56,7 @@ public class Engine {
         float deltaFps = 0;
 
         long updateTime = initialTime;
+        GUIInstance guiInstance = scene.getGuiInstance();
         while (running && !window.windowShouldClose()) {
             window.pollEvents();
 
@@ -61,7 +66,8 @@ public class Engine {
 
             if (targetFps <= 0 || deltaFps >= 1) {
                 window.getMouseInput().input();
-                appLogic.input(window, scene, now - initialTime);
+                boolean inputConsumed = guiInstance != null && guiInstance.handleGUIInput(scene,window);
+                appLogic.input(window, scene, now - initialTime, inputConsumed);
             }
 
             if (deltaUpdate >= 1) {

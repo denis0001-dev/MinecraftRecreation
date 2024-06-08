@@ -1,8 +1,12 @@
 package net.minecraftrecreation.client;
 
+import imgui.ImGui;
+import imgui.ImGuiIO;
+import imgui.flag.ImGuiCond;
 import net.minecraftrecreation.client.input.MouseInput;
 import net.minecraftrecreation.render.camera.Camera;
 import net.minecraftrecreation.render.camera.Renderer;
+import net.minecraftrecreation.render.gui.GUIInstance;
 import net.minecraftrecreation.render.scene.Scene;
 import net.minecraftrecreation.world.Location;
 import net.minecraftrecreation.world.entity.Player;
@@ -18,7 +22,7 @@ import static net.minecraftrecreation.world.block.Blocks.STONE;
 import static org.lwjgl.glfw.GLFW.*;
 import static ru.morozovit.logging.Loglevel.*;
 
-public final class Main implements IAppLogic {
+public final class Main implements IAppLogic, GUIInstance {
     public Player player;
 
     // private final Vector4f displInc = new Vector4f();
@@ -96,7 +100,11 @@ public final class Main implements IAppLogic {
     }
 
     @Override
-    public void input(@NotNull Window window, @NotNull Scene scene, long diffTimeMillis) {
+    public void input(@NotNull Window window, @NotNull Scene scene, long diffTimeMillis, boolean inputConsumed) {
+        if (inputConsumed) {
+            return;
+        }
+
         int x = (int) scene.getCamera().getPosition().x;
         int y = (int) scene.getCamera().getPosition().y;
         int z = (int) scene.getCamera().getPosition().z;
@@ -154,5 +162,26 @@ public final class Main implements IAppLogic {
 
         OVERWORLD.update(scene);
         player.update();
+    }
+
+    @Override
+    public void drawGUI() {
+        ImGui.newFrame();
+        ImGui.setNextWindowPos(0,0, ImGuiCond.Always);
+        ImGui.showDemoWindow();
+        ImGui.endFrame();
+        ImGui.render();
+    }
+
+    @Override
+    public boolean handleGUIInput(Scene scene, @NotNull Window window) {
+        ImGuiIO imGuiIO = ImGui.getIO();
+        MouseInput mouseInput = window.getMouseInput();
+        Vector2f mousePos = mouseInput.getCurrentPos();
+        imGuiIO.setMousePos(mousePos.x, mousePos.y);
+        imGuiIO.setMouseDown(0, mouseInput.isLeftButtonPressed());
+        imGuiIO.setMouseDown(1, mouseInput.isRightButtonPressed());
+
+        return imGuiIO.getWantCaptureMouse() || imGuiIO.getWantCaptureKeyboard();
     }
 }

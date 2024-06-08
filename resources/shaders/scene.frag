@@ -11,7 +11,6 @@ struct Material {
 uniform sampler2D txtSampler;
 uniform Material material;
 
-void main()
-{
+void main() {
     fragColor = texture(txtSampler, outTextCoord) + material.diffuse;
 }
