@@ -1,6 +1,6 @@
-[2024.06.06 22:11:27] [main/INFO]: Starting MinecraftRecreation Project version 1.0 pre-alpha
-[2024.06.06 22:11:27] [main/DEBUG]: Arguments: [--name, test]
-[2024.06.06 22:11:27] [main/INFO]: Setting user: test
-[2024.06.06 22:11:27] [main/INFO]: Loading world 'overworld' from 'world.mcrworld'
-[2024.06.06 22:12:31] [main/INFO]: Saving world 'overworld' to 'world.mcrworld'
-[2024.06.06 22:12:31] [main/INFO]: Stopping!
+[2024.06.08 14:31:36] [main/INFO]: Starting MinecraftRecreation Project version 1.0 pre-alpha
+[2024.06.08 14:31:36] [main/DEBUG]: Arguments: [--name, test]
+[2024.06.08 14:31:36] [main/INFO]: Setting user: test
+[2024.06.08 14:31:36] [main/INFO]: Loading world 'overworld' from 'world.mcrworld'
+[2024.06.08 14:31:57] [main/INFO]: Saving world 'overworld' to 'world.mcrworld'
+[2024.06.08 14:31:57] [main/INFO]: Stopping!

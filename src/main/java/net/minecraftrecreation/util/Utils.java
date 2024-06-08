@@ -1,4 +1,4 @@
-package ru.morozovit.util;
+package net.minecraftrecreation.util;
 
 import java.io.IOException;
 import java.nio.file.*;

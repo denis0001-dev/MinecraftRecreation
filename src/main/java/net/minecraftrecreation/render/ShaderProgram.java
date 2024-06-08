@@ -1,6 +1,6 @@
 package net.minecraftrecreation.render;
 
-import ru.morozovit.util.Utils;
+import net.minecraftrecreation.util.Utils;
 import org.lwjgl.opengl.GL20;
 
 import java.util.ArrayList;
