@@ -1,15 +1,13 @@
 package net.minecraftrecreation.world;
 
-import net.minecraftrecreation.world.block.exceptions.BlockOutOfBoundsException;
 import net.minecraftrecreation.world.block.base.Block;
+import net.minecraftrecreation.world.block.exceptions.BlockOutOfBoundsException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 import static net.minecraftrecreation.world.block.Blocks.AIR;
 
@@ -72,6 +70,20 @@ public class BlockMap implements Serializable {
 //        if (this.capacity < 0) {
 //            throw new NegativeCapacityException(capacity);
 //        }
+    }
+
+    public void clean() {
+        List<Location> remove = new ArrayList<>();
+
+        for (Map.Entry<Location,Block> entry : blocks.entrySet()) {
+            if (entry.getValue() == null || entry.getValue().equals(AIR)) {
+                remove.add(entry.getKey());
+            }
+        }
+
+        for (Location loc : remove) {
+            blocks.remove(loc);
+        }
     }
 
     @SuppressWarnings({"BooleanMethodIsAlwaysInverted", "SameReturnValue"})

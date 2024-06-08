@@ -6,6 +6,7 @@ import net.minecraftrecreation.render.scene.objects.Model;
 import net.minecraftrecreation.render.scene.objects.TextureCache;
 import net.minecraftrecreation.world.entity.Entity;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -59,5 +60,11 @@ public class Scene {
 
     public Camera getCamera() {
         return camera;
+    }
+
+    public void removeEntity(@Nullable Entity entity) {
+        if (entity != null) {
+            modelMap.remove(entity.getModelId());
+        }
     }
 }

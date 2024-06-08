@@ -2,21 +2,17 @@ MinecraftRecreation Project Crash Report
 -----------
 // I'm so sorry :(
 
-Time: 17:43:23 08.06.2024
-UUID: da6a35ba-01f4-42d8-8db0-bec2c9c1b3ff
+Time: 19:25:05 08.06.2024
+UUID: 00a6ccb8-3f76-4442-b2f3-f07b233f2f09
 
 Error details
 ---------
-java.lang.RuntimeException: Image file [resources/models/GrassBlock/texture.png] not loaded: Unable to open file
-	at net.minecraftrecreation.render.scene.objects.Texture.<init>(Texture.java:30)
-	at java.base/java.util.HashMap.computeIfAbsent(HashMap.java:1228)
-	at net.minecraftrecreation.render.scene.objects.TextureCache.createTexture(TextureCache.java:21)
-	at net.minecraftrecreation.render.scene.objects.ModelLoader.processMaterial(ModelLoader.java:537)
-	at net.minecraftrecreation.render.scene.objects.ModelLoader.loadModel(ModelLoader.java:494)
-	at net.minecraftrecreation.render.scene.objects.ModelLoader.loadModel(ModelLoader.java:465)
-	at net.minecraftrecreation.world.World.setBlockNoSave(World.java:148)
-	at net.minecraftrecreation.world.World.loadBlockMap(World.java:76)
-	at net.minecraftrecreation.world.World.load(World.java:116)
+java.util.ConcurrentModificationException
+	at java.base/java.util.HashMap$HashIterator.nextNode(HashMap.java:1605)
+	at java.base/java.util.HashMap$EntryIterator.next(HashMap.java:1638)
+	at java.base/java.util.HashMap$EntryIterator.next(HashMap.java:1636)
+	at net.minecraftrecreation.world.World.loadBlockMap(World.java:78)
+	at net.minecraftrecreation.world.World.load(World.java:123)
 	at net.minecraftrecreation.client.Main.init(Main.java:74)
 	at net.minecraftrecreation.client.Engine.<init>(Engine.java:32)
 	at net.minecraftrecreation.client.Main.main(Main.java:48)

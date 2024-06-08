@@ -5,19 +5,22 @@ import net.minecraftrecreation.render.scene.objects.Model;
 import net.minecraftrecreation.world.block.base.Block;
 import net.minecraftrecreation.world.entity.Entity;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import ru.morozovit.util.ExcParser;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static net.minecraftrecreation.client.CrashHandler.crash;
 import static net.minecraftrecreation.client.Main.logger;
 import static net.minecraftrecreation.client.Main.postExit;
 import static net.minecraftrecreation.render.scene.objects.ModelLoader.loadModel;
-import static net.minecraftrecreation.world.block.Blocks.AIR;
-import static net.minecraftrecreation.world.block.Blocks.GRASS_BLOCK;
+import static net.minecraftrecreation.world.block.Blocks.*;
 import static ru.morozovit.logging.Loglevel.*;
 
 public class World implements Serializable, Cloneable {
@@ -71,7 +74,8 @@ public class World implements Serializable, Cloneable {
         return world.blockMap;
     }
 
-    private void loadBlockMap(BlockMap map) {
+    private void loadBlockMap(@NotNull BlockMap map) {
+        blockMap.clean();
         for (Map.Entry<Location, Block> entry: map.getBlocks().entrySet()) {
             setBlockNoSave(entry.getValue(), entry.getKey());
         }
@@ -126,12 +130,19 @@ public class World implements Serializable, Cloneable {
         return super.clone();
     }
 
-    private int lastIndex(@NotNull List<?> list) {
-        return list.size() - 1;
+//    private int lastIndex(@NotNull List<?> list) {
+//        return list.size() - 1;
+//    }
+    public void removeBlock(Location loc) {
+        setBlock(AIR, loc);
     }
 
     private void setBlockNoSave(Block block, Location location) {
-        if (block == AIR) return;
+        if (blockMap.getBlock(location) != AIR) {
+            scene.removeEntity(blockEntityAt(location));
+        }
+
+        if (block.equals(AIR)) return;
 
 //        Texture texture = this.scene.getTextureCache().createTexture(block.modelPath());
 //        Material material = new Material();
@@ -142,8 +153,8 @@ public class World implements Serializable, Cloneable {
 //        Mesh mesh = new Mesh(block.positions(), block.textCoords(), block.indices());
 //        material.getMeshList().add(mesh);
 
-        String modelName = block.id()+"-model"+lastIndex(entities);
-        String entityName = block.id()+"-entity"+lastIndex(entities);
+        String modelName = block.id()+"-model-x%dy%dz%d".formatted((int) location.x(), (int) location.y(), (int) location.z());
+        String entityName = block.id()+"-entity-x%dy%dz%d".formatted((int) location.x(), (int) location.y(), (int) location.z());
 
         Model blockModel = loadModel(modelName, block.modelPath(), scene.getTextureCache());
         this.scene.addModel(blockModel);
@@ -154,6 +165,47 @@ public class World implements Serializable, Cloneable {
         this.scene.addEntity(entity);
 
         entities.add(entity);
+    }
+
+    private @Nullable Entity blockEntityAt(Location loc) {
+        for (Entity entity : getBlockEntities()) {
+            String entityName = entity.getId();
+            Pattern pattern = Pattern.compile(
+                    "(%s)-entity-x(\\d+)y(\\d+)z(\\d+)"
+                            .formatted(String.join("|", Arrays.stream(getBlocks())
+                                    .map(Block::id)
+                                    .toArray(String[]::new)
+                                    )
+                            )
+            );
+            Matcher matcher = pattern.matcher(entityName);
+
+            if (matcher.find()) {
+                int x = Integer.parseInt(matcher.group(1));
+                int y = Integer.parseInt(matcher.group(2));
+                int z = Integer.parseInt(matcher.group(3));
+
+                if (x == loc.x() && y == loc.y() && z == loc.z()) {
+                    return entity;
+                }
+            }
+        }
+        return null;
+    }
+
+    private @NotNull List<Entity> getBlockEntities() {
+        List<Entity> result = new ArrayList<>();
+
+        for (Entity entity : entities) {
+            for (Block block : getBlocks()) {
+                String blockId = block.id();
+                if (Pattern.compile(blockId+"-entity\\d+").matcher(entity.getId()).find()) {
+                    result.add(entity);
+                }
+            }
+        }
+
+        return result;
     }
 
     private void setBlockNoRender(Block block, Location location) {

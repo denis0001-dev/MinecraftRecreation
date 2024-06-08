@@ -97,6 +97,10 @@ public final class Main implements IAppLogic {
 
     @Override
     public void input(@NotNull Window window, @NotNull Scene scene, long diffTimeMillis) {
+        int x = (int) scene.getCamera().getPosition().x;
+        int y = (int) scene.getCamera().getPosition().y;
+        int z = (int) scene.getCamera().getPosition().z;
+
         // counter++;
         float move = diffTimeMillis * MOVEMENT_SPEED;
         Camera camera = scene.getCamera();
@@ -117,6 +121,13 @@ public final class Main implements IAppLogic {
             camera.moveDown(move);
         }
 
+        if (window.isKeyPressed(GLFW_KEY_R)) {
+            if (!player.blockBreakCooldownActive()) {
+                OVERWORLD.removeBlock(new Location(x,y,z));
+                player.blockBreakCooldown();
+            }
+        }
+
         MouseInput mouseInput = window.getMouseInput();
         if (mouseInput.isRightButtonPressed()) {
             // TODO buttonless mouse input
@@ -128,11 +139,10 @@ public final class Main implements IAppLogic {
                     (float) Math.toRadians(-displVec.y * MOUSE_SENSITIVITY));
         }
         if (mouseInput.isLeftButtonPressed()) {
-            int x = (int) scene.getCamera().getPosition().x;
-            int y = (int) scene.getCamera().getPosition().y;
-            int z = (int) scene.getCamera().getPosition().z;
-
-            OVERWORLD.setBlock(STONE, new Location(x,y,z));
+            if (!player.blockPlaceCooldownActive()) {
+                OVERWORLD.setBlock(STONE, new Location(x,y,z));
+                player.blockPlaceCooldown();
+            }
         }
     }
 
@@ -143,5 +153,6 @@ public final class Main implements IAppLogic {
 //        }
 
         OVERWORLD.update(scene);
+        player.update();
     }
 }

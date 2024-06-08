@@ -11,5 +11,14 @@ public abstract class Block implements IBlock, Serializable {
 
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        try {
+            return obj instanceof Block && ((Block) obj).id().equals(id());
+        } catch (ClassCastException _) {
+            return false;
+        }
+    }
+
     public abstract String id();
 }
