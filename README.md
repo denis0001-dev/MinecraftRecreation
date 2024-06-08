@@ -10,8 +10,8 @@
 * Обработка некоторых ошибок
 * Два блока: [дёрн](src/main/java/net/minecraftrecreation/world/block/GrassBlock.java) и [камень](src/main/java/net/minecraftrecreation/world/block/Stone.java) ([воздух](src/main/java/net/minecraftrecreation/world/block/Air.java) тоже есть, но он не считается)
 * Можно поменять блок, который вы будете ставить в методе input класса [Main](src/main/java/net/minecraftrecreation/client/Main.java).
-<br/>
-<pre>
+
+```jshelllanguage
 // Main.java, конец метода input( ... )
 
 if (mouseInput.isLeftButtonPressed()) {
@@ -20,9 +20,8 @@ if (mouseInput.isLeftButtonPressed()) {
     int z = (int) scene.getCamera().getPosition().z;
 
     OVERWORLD.setBlock(STONE, new Location(x,y,z)); // STONE можно заменить на "GrassBlock" и обратно
-    
 }
-</pre>
+```
 
 # Список дел
 * Базовая генерация мира
@@ -37,9 +36,8 @@ if (mouseInput.isLeftButtonPressed()) {
 Обновления будут выходить каждый день.
 
 # Библиотеки
-<code>LWJGL</code> - самая важная, благодаря ей вся игра работает!
-<br/>
-<code>JOML</code> - для 3D координат
-<br/>
-<code>ImGUI</code> - Графический интерфейс
-<br/>
+| Название                                    | Предназначение                                |
+|---------------------------------------------|-----------------------------------------------|
+| [`LWJGL`](https://lwjgl.org)                | Cамая важная, благодаря ей вся игра работает! |
+| [`JOML`](https://github.com/JOML-CI/JOML)   | 3D координаты                                 |
+| [`ImGUI`](https://github.com/ocornut/imgui) | Графический интерфейс                         |
