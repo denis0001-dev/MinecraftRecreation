@@ -20,6 +20,7 @@ import static net.minecraftrecreation.client.CrashHandler.crash;
 import static net.minecraftrecreation.world.Worlds.OVERWORLD;
 import static net.minecraftrecreation.world.block.Blocks.STONE;
 import static org.lwjgl.glfw.GLFW.*;
+import static org.lwjgl.opengl.GL11.glClearColor;
 import static ru.morozovit.logging.Loglevel.*;
 
 public final class Main implements IAppLogic, GUIInstance {
@@ -97,6 +98,12 @@ public final class Main implements IAppLogic, GUIInstance {
 //        entities.add(new Entity("cube-entity", cubeModel.getId()));
 //        entities.getFirst().setPosition(0, 0, -2);
 //        scene.addEntity(entities.getFirst());
+
+//        Skybox skybox = new Skybox("resources/models/skybox/skybox.obj", scene.getTextureCache());
+//        skybox.getEntity().setScale(100000);
+//        scene.setSkybox(skybox);
+
+        glClearColor(0.66f, 1.0f, 1.0f, 1.0f);
     }
 
     @Override

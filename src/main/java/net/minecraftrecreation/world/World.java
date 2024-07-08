@@ -67,10 +67,13 @@ public class World implements Serializable, Cloneable {
                 new Location(-128, 10,-128)
         );
 
-        world.setBlockNoRender(GRASS_BLOCK, new Location(0,0,0));
-        world.setBlockNoRender(GRASS_BLOCK, new Location(0,0,1));
-        world.setBlockNoRender(GRASS_BLOCK, new Location(1,0,0));
-        world.setBlockNoRender(GRASS_BLOCK, new Location(1,0,1));
+        for (int y = 0; y < 5; y++) {
+            for (int x = 0; x < 25; x++) {
+                for (int z = 0; z < 25; z++) {
+                    world.setBlockNoRender(GRASS_BLOCK, new Location(x, y, z));
+                }
+            }
+        }
         return world.blockMap;
     }
 

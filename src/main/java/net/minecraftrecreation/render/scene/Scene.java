@@ -17,6 +17,7 @@ public class Scene {
     private final Projection projection;
     private final TextureCache textureCache;
     private final Camera camera;
+    private Skybox skybox;
 
     private GUIInstance guiInstance;
 
@@ -76,5 +77,13 @@ public class Scene {
 
     public void setGuiInstance(GUIInstance guiInstance) {
         this.guiInstance = guiInstance;
+    }
+
+    public Skybox getSkybox() {
+        return skybox;
+    }
+
+    public void setSkybox(Skybox skybox) {
+        this.skybox = skybox;
     }
 }
