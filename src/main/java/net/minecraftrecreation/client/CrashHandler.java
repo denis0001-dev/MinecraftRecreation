@@ -26,7 +26,7 @@ public final class CrashHandler {
 
         logger.log(INFO, "Preparing crash report with UUID %s".formatted(uuid.toString()));
 
-        CrashReport crashReport = new CrashReport(TITLE,new String[]{"My bad.", "I'm so sorry :("},e);
+        CrashReport crashReport = new CrashReport(TITLE, new String[]{"My bad.", "I'm so sorry :("},e);
 
         String report = crashReport.build(uuid);
 

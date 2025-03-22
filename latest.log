@@ -1,6 +1,16 @@
-[2024.07.07 19:49:24] [main/INFO]: Starting MinecraftRecreation Project version 1.0 pre-alpha
-[2024.07.07 19:49:24] [main/DEBUG]: Arguments: [--name, test]
-[2024.07.07 19:49:24] [main/INFO]: Setting user: test
-[2024.07.07 19:49:24] [main/INFO]: Loading world 'overworld' from 'world.mcrworld'
-[2024.07.07 19:50:06] [main/INFO]: Saving world 'overworld' to 'world.mcrworld'
-[2024.07.07 19:50:06] [main/INFO]: Stopping!
+[2025.03.22 18:28:50] [main/INFO]: Starting MinecraftRecreation Project version 1.0 pre-alpha
+[2025.03.22 18:28:50] [main/DEBUG]: Arguments: []
+[2025.03.22 18:28:50] [main/INFO]: Setting user: null
+[2025.03.22 18:28:50] [main/INFO]: Loading world 'overworld' from 'world.mcrworld'
+[2025.03.22 18:28:50] [main/WARN]: Couldn't load 'overworld', creating a new one
+java.io.FileNotFoundException: world.mcrworld (Нет такого файла или каталога)
+	at java.base/java.io.FileInputStream.open0(Native Method)
+	at java.base/java.io.FileInputStream.open(FileInputStream.java:213)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:152)
+	at java.base/java.io.FileInputStream.<init>(FileInputStream.java:106)
+	at net.minecraftrecreation.world.World.load(World.java:112)
+	at net.minecraftrecreation.client.Main.init(Main.java:79)
+	at net.minecraftrecreation.client.Engine.<init>(Engine.java:33)
+	at net.minecraftrecreation.client.Main.main(Main.java:53)
+[2025.03.22 18:33:21] [main/INFO]: Saving world 'overworld' to 'world.mcrworld'
+[2025.03.22 18:33:21] [main/INFO]: Stopping!

@@ -24,14 +24,14 @@ public class MouseInput {
         rightButtonPressed = false;
         inWindow = false;
 
-        cursorMoveCallback = (handle, xpos, ypos) -> {
+        cursorMoveCallback = (_, xpos, ypos) -> {
             currentPos.x = (float) xpos;
             currentPos.y = (float) ypos;
         };
 
         glfwSetCursorPosCallback(windowHandle, cursorMoveCallback);
-        glfwSetCursorEnterCallback(windowHandle, (handle, entered) -> inWindow = entered);
-        glfwSetMouseButtonCallback(windowHandle, (handle, button, action, mode) -> {
+        glfwSetCursorEnterCallback(windowHandle, (_, entered) -> inWindow = entered);
+        glfwSetMouseButtonCallback(windowHandle, (_, button, action, _) -> {
             leftButtonPressed = button == GLFW_MOUSE_BUTTON_1 && action == GLFW_PRESS;
             rightButtonPressed = button == GLFW_MOUSE_BUTTON_2 && action == GLFW_PRESS;
         });

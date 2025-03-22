@@ -42,4 +42,7 @@ build/
 /out/
 latest.log
 latest_crash.txt
-qodana.yaml
+world.mcrworld
+
+### Java ###
+hs_err_pid*.log
